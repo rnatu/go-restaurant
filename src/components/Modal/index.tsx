@@ -7,14 +7,13 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
-export function Modal(props: ModalProps) {
+export function Modal(props: ModalProps): JSX.Element {
   const { isOpen } = props;
   const { children, setIsOpen } = props;
 
   const [modalStatus, setModalStatus] = useState(isOpen);
 
   useEffect(() => {
-    console.log(props);
     setModalStatus(isOpen);
   }, [isOpen]);
 

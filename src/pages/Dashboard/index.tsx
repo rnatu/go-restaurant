@@ -10,7 +10,7 @@ import ModalEditFood from '../../components/ModalEditFood';
 import { FoodsContainer } from './styles';
 
 
-export function Dashboard() {
+export function Dashboard(): JSX.Element {
   const [foods, setFoods] = useState<FoodInterface[]>([]);
   const [editingFood, setEditingFood] = useState<FoodInterface>({} as FoodInterface);
   const [modalOpen, setModalOpen] = useState(false);

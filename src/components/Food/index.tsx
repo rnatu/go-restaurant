@@ -13,7 +13,7 @@ interface FoodProps {
   handleEditFood: (food: FoodInterface) => void,
 }
 
-export function Food(props: FoodProps) {
+export function Food(props: FoodProps): JSX.Element {
   const { available } = props.food;
   const [isAvailable, setIsAvailable] = useState(available);
   const { food, handleEditFood, handleDelete } = props;
