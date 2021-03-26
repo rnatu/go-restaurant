@@ -7,8 +7,7 @@ interface HeaderProps {
   openModal: () => void;
 }
 
-export function Header(props: HeaderProps): JSX.Element {
-    const { openModal } = props;
+export function Header({ openModal }: HeaderProps): JSX.Element {
 
     return (
       <Container>

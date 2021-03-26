@@ -5,7 +5,6 @@ import { Container } from './styles';
 import api from '../../services/api';
 import { useState } from 'react';
 
-
 interface FoodProps {
   food: FoodInterface,
   key: number,
@@ -13,11 +12,9 @@ interface FoodProps {
   handleEditFood: (food: FoodInterface) => void,
 }
 
-export function Food(props: FoodProps): JSX.Element {
-  const { available } = props.food;
+export function Food({ food, handleEditFood, handleDelete }: FoodProps): JSX.Element {
+  const { available } = food;
   const [isAvailable, setIsAvailable] = useState(available);
-  const { food, handleEditFood, handleDelete } = props;
-
 
   const toggleAvailable = async() => {
     await api.put(`/foods/${food.id}`, {
@@ -27,7 +24,6 @@ export function Food(props: FoodProps): JSX.Element {
 
     setIsAvailable(!isAvailable);
   }
-
 
   function setEditingFood() {
     handleEditFood(food);

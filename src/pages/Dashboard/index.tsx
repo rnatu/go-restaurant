@@ -6,7 +6,7 @@ import { Header } from '../../components/Header'
 import api from '../../services/api';
 import { Food }from '../../components/Food';
 import { ModalAddFood } from '../../components/ModalAddFood';
-import ModalEditFood from '../../components/ModalEditFood';
+import { ModalEditFood } from '../../components/ModalEditFood';
 import { FoodsContainer } from './styles';
 
 
@@ -24,7 +24,7 @@ export function Dashboard(): JSX.Element {
     gettingFoods();
   },[]);
 
-  const handleAddFood = async (food: FoodInterface) => {
+  const handleAddFood = async (food: FoodInterface): Promise<void> => {
     try {
       const { data } = await api.post('/foods', {
         ...food,
@@ -62,15 +62,15 @@ export function Dashboard(): JSX.Element {
     setFoods(foodsFiltered);
   }
 
-  function toggleModal () {
+  const toggleModal = () => {
     setModalOpen(!modalOpen);
   }
 
-  function toggleEditModal() {
+  const toggleEditModal = () => {
     setEditModalOpen(!editModalOpen);
   }
 
-  function handleEditFood (food: FoodInterface)  {
+  const handleEditFood = (food: FoodInterface) => {
     setEditingFood(food);
     setEditModalOpen(true);
   }
